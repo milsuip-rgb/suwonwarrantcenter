@@ -1,0 +1,12 @@
+상담 전화: 02-123-4567`,imageUrl:"",link:"/consultat
+-5"})]}),d.jsx("a",{href:"tel:031-214-5566",className:"flex-1 bg-white/5
+ansition-colors",placeholder:"010-0000-0000",required:!0})]}),d.jsxs("div
+.path)),d.jsxs("a",{href:"tel:031-214-5566",className:"flex items-center
+.5"}),d.jsx("span",{children:"031-214-5566"})]})]}),d.jsx("button",{clas
+-4"}),d.jsx("span",{children:"031-214-5566 긴급상담"})]})]})})})]}),d.jsx("m
+te-600",children:"|"})," TEL: 031-214-5566 ",d.jsx("span",{className:"mx
+e-600",children:"|"})," FAX : 031-213-6655 ",d.jsx("span",{className:"mx
+ld text-white mb-4",children:"031-214-5566"}),d.jsxs("p",{className:"tex
+한 방법"}),d.jsxs("a",{href:"tel:031-214-5566",className:"inline-flex items
+-5"}),d.jsx("span",{children:"031-214-5566"})]})]}),d.jsxs(_e.div,{initi
+ansition-colors",placeholder:"010-0000-0000",required:!0})]})]}),d.jsxs("

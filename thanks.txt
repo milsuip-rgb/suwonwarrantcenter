@@ -1,0 +1,10 @@
+ng().split("T")[0]},mU=[{id:1,result:"집행유예",text:"정말 막막한 상황이었는데, 변호사님 덕분에 선처를 받을 수 있었습니다. 밤낮없이 제 사건에 매
+"},{id:2,result:"무혐의",text:"억울한 누명을 쓰고 너무 괴로웠습니다. 변호사님이 증거를 하나하나 찾아주셔서 무죄를 입증할 수 있었습니다. 감사합니다.",bg:"/cli
+an",{className:"text-red-500",children:"때로는 '감형'이 최고의 전략입니다."})]}),d.jsx("p",{className:"text-lg sm:te
+idden",children:[d.jsx("img",{src:x.bg,alt:"실제 후기 캡처",className:"w-full h-full object-cover opacity-50
+("img",{src:(m=n[l])==null?void 0:m.bg,alt:"실제 후기 캡처",className:"w-full h-full object-cover opacity-50
+e({...U}),pe(!0)},Pn=async U=>{if(window.confirm("정말 삭제하시겠습니까?"))try{await fe(U),Ze.success("후기가 삭제되었습
+e:!he.isActive})},Tn=async U=>{if(window.confirm("정말 삭제하시겠습니까?"))try{await x(U),Ze.success("팝업이 삭제되었습니
+umentImages:he})},Ms=async U=>{if(window.confirm("정말 삭제하시겠습니까?"))try{await S(U),Ze.success("성공사례가 삭제되었
+..W,careers:he})},jn=async U=>{if(window.confirm("정말 삭제하시겠습니까?"))try{await O(U),Ze.success("변호사 정보가 삭제
+.he,status:"read"})},vt=async U=>{window.confirm("정말 삭제하시겠습니까?")&&await Y(U)};return t?d.jsxs("div",{c

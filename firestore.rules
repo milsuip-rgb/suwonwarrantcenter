@@ -1,0 +1,115 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // 1. Global Safety Net
+    match /{document=**} { 
+      allow read, write: if false; 
+    }
+
+    // --- Primitives ---
+    function isSignedIn() { return request.auth != null; }
+    function isAdmin() { 
+      return isSignedIn() && (
+        request.auth.token.email == 'milsuip@gmail.com' ||
+        exists(/databases/$(database)/documents/admins/$(request.auth.token.email))
+      );
+    }
+    function isValidId(id) { 
+      return id is string && id.size() > 0 && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-\\.]+$'); 
+    }
+    function incoming() { return request.resource.data; }
+    function existing() { return resource.data; }
+    
+    // --- Validation Helpers ---
+    function isValidCaseItem(data) {
+      return data.keys().hasAll(['station', 'charge', 'fact', 'defense', 'result', 'status', 'createdAt', 'updatedAt']) &&
+             data.keys().size() <= 10 &&
+             data.station is string && data.station.size() <= 200 &&
+             data.charge is string && data.charge.size() <= 200 &&
+             data.fact is string && data.fact.size() <= 5000 &&
+             data.defense is string && data.defense.size() <= 5000 &&
+             data.result is string && data.result.size() <= 200 &&
+             data.status in ['공개', '비공개'] &&
+             (data.get('image', '') is string) && (data.get('image', '').size() <= 2097152) &&
+             (data.get('order', 0) is number) &&
+             data.createdAt is number && data.updatedAt is number;
+    }
+
+    function isValidLawyerItem(data) {
+      return data.keys().hasAll(['name', 'role', 'type', 'createdAt', 'updatedAt']) &&
+             data.keys().size() <= 7 &&
+             data.name is string && data.name.size() <= 100 &&
+             data.role is string && data.role.size() <= 100 &&
+             data.type is string && data.type.size() <= 5000 &&
+             (data.get('image', '') is string) && (data.get('image', '').size() <= 2097152) &&
+             (data.get('order', 0) is number) &&
+             data.createdAt is number && data.updatedAt is number;
+    }
+
+    function isValidReviewItem(data) {
+      return data.keys().hasAll(['writer', 'title', 'result', 'content', 'status', 'createdAt', 'updatedAt']) &&
+             data.keys().size() <= 9 &&
+             data.writer is string && data.writer.size() <= 100 &&
+             data.title is string && data.title.size() <= 400 &&
+             data.result is string && data.result.size() <= 100 &&
+             data.content is string && data.content.size() <= 5000 &&
+             (data.get('image', '') is string) && (data.get('image', '').size() <= 2097152) &&
+             data.status in ['승인됨', '대기중'] &&
+             data.createdAt is number && data.updatedAt is number;
+    }
+
+    function isValidPopupItem(data) {
+      return data.keys().hasAll(['title', 'date', 'status', 'content', 'createdAt', 'updatedAt']) &&
+             data.keys().size() <= 7 &&
+             data.title is string && data.title.size() <= 500 &&
+             data.content is string && data.content.size() <= 5000 &&
+             data.date is string && data.date.size() <= 200 &&
+             (data.get('image', '') is string) && (data.get('image', '').size() <= 2097152) &&
+             data.status in ['활성', '비활성'] &&
+             data.createdAt is number && data.updatedAt is number;
+    }
+
+    function isValidAdmin(data) {
+      return data.keys().hasAll(['email', 'role']) &&
+             data.keys().size() == 2 &&
+             data.email is string && data.email.size() <= 200 &&
+             data.role == 'admin';
+    }
+
+    // --- Collections ---
+    match /admins/{email} {
+      allow read: if isAdmin();
+      allow create, update: if isAdmin() && isValidId(email) && isValidAdmin(incoming());
+      allow delete: if isAdmin() && isValidId(email);
+    }
+
+    match /cases/{caseId} {
+      allow read: if true;
+      allow create: if isAdmin() && isValidId(caseId) && isValidCaseItem(incoming());
+      allow update: if isAdmin() && isValidId(caseId) && isValidCaseItem(incoming()) && incoming().createdAt == existing().createdAt;
+      allow delete: if isAdmin() && isValidId(caseId);
+    }
+
+    match /lawyers/{lawyerId} {
+      allow read: if true;
+      allow create: if isAdmin() && isValidId(lawyerId) && isValidLawyerItem(incoming());
+      allow update: if isAdmin() && isValidId(lawyerId) && isValidLawyerItem(incoming()) && incoming().createdAt == existing().createdAt;
+      allow delete: if isAdmin() && isValidId(lawyerId);
+    }
+
+    match /reviews/{reviewId} {
+      // Allow read for everyone so website can display approved reviews
+      allow read: if true;
+      allow create: if isAdmin() && isValidId(reviewId) && isValidReviewItem(incoming());
+      allow update: if isAdmin() && isValidId(reviewId) && isValidReviewItem(incoming()) && incoming().createdAt == existing().createdAt;
+      allow delete: if isAdmin() && isValidId(reviewId);
+    }
+
+    match /popups/{popupId} {
+      allow read: if true;
+      allow create: if isAdmin() && isValidId(popupId) && isValidPopupItem(incoming());
+      allow update: if isAdmin() && isValidId(popupId) && isValidPopupItem(incoming()) && incoming().createdAt == existing().createdAt;
+      allow delete: if isAdmin() && isValidId(popupId);
+    }
+  }
+}

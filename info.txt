@@ -1,0 +1,42 @@
+,zd=L6(cN,lN.firestoreDatabaseId),Si=nU(cN),Z0=[{id:1,name:"대표변호사 정해원",role:"대표변호사",field:"보이스피싱 전담",image:"/jung_haewon.j
+법률상담변호사","군포경찰서 법률상담변호사","대한변호사협회 등록 형사전문변호사"]},{id:2,name:"대표변호사 윤선영",role:"대표변호사",field:"보이스피싱 전담",image:"/yoon_sunyoung
+"군포경찰서 범죄피해자 통합지원협의체 위원","대한변호사협회 등록 형사전문변호사"]},{id:3,name:"대표변호사 곽은정",role:"대표변호사",field:"보이스피싱 전담",image:"/kwak_eunjung.
+금 수거/전달 업무 수행",dangerSituation:"검사는 이례적인 업무 방식과 과다한 수당을 근거로 의뢰인이 미필적으로나마 범행을 인식했을 것이라 주장하며 사기 공범으로 기소하였습니다.",issue:"보이스피싱 범
+tos/seed/lawdoc1/400/250?grayscale",summary:"일용직으로 생계를 이어가던 의뢰인이 단순 심부름인 줄 알고 현금 전달 업무를 반복하다 보이스피싱 공범으로 몰려 형사 재판을 받게 된 사건입니
+ 발견 및 집중 변론","일반인 기준이 아닌 행위자의 주관적 인지 능력을 기준으로 고의 여부 판단 주장","의뢰인의 나이, 지능, 경력 등을 종합하여 범의가 없었음을 논리적으로 입증"],finalResult:"인천지방법원
+ps://picsum.photos/seed/lawdoc4/400/250?grayscale",summary:"의뢰인은 단순 아르바이트인 줄 알고 현금 수거 업무를 하였으나, 보이스피싱 조직의 수거책으로 몰려 현행범으로 체포
+여부"],strategy:["경찰에 먼저 분실신고를 한 사실 등 범의가 없었음을 보여주는 정황 강조","휴대전화 포렌식 및 대화 내역 분석을 통한 불법성 인식 부재 입증","사건 초기부터 적극적으로 개입하여 유리한 객관
+적 증거 수집 및 변론"],finalResult:"경찰은 의뢰인이 범행을 인식하였다고 볼 증거가 불충분하다고 판단하여 불송치(혐의없음) 결정을 내렸습니다.",documen
+안을 받고 단순 전달 업무로 인식하여 현금 수거·전달 역할 수행",dangerSituation:"수사기관은 의뢰인이 보이스피싱 범행의 일환으로 피해자들로부터 현금을 직접 수거한 점을 근거로 사기 공범으로 판단하고, 도주 
+"구속 필요성(도주 및 증거인멸 우려)","보이스피싱 범행 인식 여부 및 가담 정도"],strategy:["의뢰인이 일정한 주거와 직업을 가지고 있어 도주 우려가 없음을 객관자료로 소명","휴대전화, 계좌 등 주요 자료를
+을 위해 계좌번호, 신분증 등 개인정보를 전달하였으나 범죄에 악용됨",dangerSituation:"범인이 의뢰인 명의로 PG 가맹점을 개설하여 불법 카드 현금화 범행을 저질렀고, 전국 각지의 피해자들로부터 사기 및 여신
+여부","전국 각지 경찰서 병합 대응"],strategy:["카카오톡 대화 및 은행 거래 내역 분석을 통해 의뢰인이 기망당한 피해자임을 소명","합법적 목적으로 믿고 제공한 것이므로 전자금융거래법상 '양도·대여'에 해당하
+ 전체 구조를 정확히 파악하고 대응"],finalResult:"서울종암경찰서를 포함한 전국 8개 경찰서에서 의뢰인 역시 보이스피싱 조직의 피해자임을 확인하여 혐의없음(불송치) 결정을 내렸으며, 검찰에서도 최종 확정되었습니
+umentImages:["/success_case_5_document.png"],highlightText:"의뢰인 역시 보이스피싱 조직의 피해자임을 확인"},{id:6,badge:"무죄",title:"대법원, 보이스피싱 
+upreme/400/250?grayscale",summary:"단순 심부름인 줄 알고 현금 수거 업무를 한 의뢰인이 1, 2심 무죄를 받았으나 검사의 상고로 대법원까지 간 사건에서 최종 무죄를 확정받은 사례입니다.",is
+)","최근 판례 동향 분석 및 대응을 통해 의심스러운 때에는 피고인의 이익으로라는 형사법 대원칙 관철","의뢰인이 사회적 약자로서 범죄조직의 기망에 이용당했음을 적극 소명"],finalResult:"대법원은 검사의 주장
+/seed/lawdoc3/400/250?grayscale",summary:"경계선 수준의 인지 기능을 가진 의뢰인이 로또 사이트 피해보상 기망에 속아 계좌 정보를 넘겨주었다가 사기 공범으로 몰린 사건입니다.",issues
+제한성 부각","수사 및 재판 과정에서 범행을 인정하고 반성하는 태도를 일관되게 유지한 점을 적극 어필","의뢰인의 사회적 관계, 재범 가능성 등을 종합적으로 제시하여 선처 필요성 설득"],finalResult:"가담 경
+ 사정에 대해 현실적 한계와 경위를 설명하고, 그럼에도 불구하고 반성 태도가 진지하다는 점을 집중 변론","의뢰인의 연령, 사회적 기반, 재범 가능성 등을 종합적으로 제시하여 실형 선고의 부당성을 설득"],finalRes
+doc_cognitive/400/250?grayscale",summary:"경계선 수준의 인지 기능을 가진 의뢰인이 아르바이트 기망에 속아 계좌 정보를 넘겼다가 사기 공범으로 몰렸으나, 인지적 취약성을 입증하여 무혐의를 
+["전자금융거래법위반(접근매체 양도) 혐의","사기 범행에 대한 인식 및 공모 여부"],strategy:["의뢰인이 수행하려 했던 행위는 단순 아르바이트 참여에 불과하며, 계좌 제공이 범죄 행위와 연결된다는 인식 자체가 
+록 수십 회 정밀 검토","경험칙에 부합하는 논리를 바탕으로 범죄 인식이 없었음을 입증하는 의견서 제출","의뢰인의 확고한 무죄 주장 의지를 바탕으로 전력 투구"],finalResult:"피고인은 무죄를 선고받았고, 다시
+상담 전화: 02-123-4567`,imageUrl:"",link:"/consultation",isActive:!0,
+rs border border-white/10",children:d.jsx("span",{children:"전화 바로 연결"})})]})]}),d.jsxs("div",{className:"p-4 bg-black/40 b
+or("Consultation save error:",g),Ze.error("접수 중 오류가 발생했습니다. 전화로 문의 부탁드립니다.")}finally{a(!1)}};return d.jsxs(d.Fragment,{chi
+sx("span",{className:"mx-1 text-slate-600",children:"|"})," 대표변호사. 정해원, 윤선영, 곽은정 ",d.jsx("span",{className:"mx-1 text-slat
+00",children:"|"})," 사업자등록번호: 587-12-02153",d.jsx("br",{}),"주소 : 경기도 수원시 영통구 광교중앙로 248번길 7-3, 503호(하동, 우연법전프라자) ",d.jsx("s
+ext-slate-400 text-sm font-bold shrink-0 sm:w-16",children:"의뢰인 상황"}),d.jsx("span",{className:"text-slate-200 text-sm sm:te
+sm:text-4xl font-extrabold leading-tight mb-4",children:"실제 의뢰인 결과 후기"})}),d.jsx("div",{className:"hidden md:grid md:grid-c
+:"text-2xl font-bold text-white mb-6 text-center",children:"대표 성공사례"}),d.jsx("div",{className:"grid gap-4 sm:grid-cols-2",
+en:[d.jsx(Zs,{className:"w-5 h-5"}),d.jsx("span",{children:"전화 상담하기"})]}),d.jsxs(ot,{to:"/consultation",className:"flex-1 
+y-center gap-1",children:[d.jsx(Zs,{className:"w-4 h-4"})," 전화"]}),d.jsxs(ot,{to:"/consultation",className:"flex-1 bg-[#03
+className:"text-lg font-bold text-slate-400 mb-3",children:"의뢰인 상황"}),d.jsx("p",{className:"text-white leading-relaxed brea
+xt-xl transition-all active:scale-95 shadow-lg",children:"[ 전화 상담하기 ]"}),d.jsx(ot,{to:"/consultation",className:"bg-[#03C7
+e-300 text-lg sm:text-xl font-medium break-keep",children:["대표 변호사가 직접 사건을 맡아",d.jsx("br",{className:"sm:hidden"}),"처음부터 끝
+,{className:"w-8 h-8 text-red-500"}),title:"1. 상황 분석",desc:"의뢰인의 현재 상황을 정확히 파악하고, 수사기관의 동향을 예측합니다.",details:["사건 경위 파악","증거
+t-green-500"}),title:"4. 결과 도출",desc:"수사기관 및 법원과 적극적으로 소통하며 의뢰인에게 가장 유리한 결과를 이끌어냅니다.",details:["검찰 처분 대응","재판 변론 (기소 시)","최
+or("Consultation save error:",m),Ze.error("접수 중 오류가 발생했습니다. 전화로 문의 부탁드립니다.")}finally{n(!1)}};return d.jsxs("div",{classNam
+",{className:"text-2xl font-bold text-white mb-2",children:"전화 상담"}),d.jsx("p",{className:"text-slate-400 mb-6",children:"
+ms-center gap-2",children:[d.jsx(rd,{className:"w-4 h-4"}),"대표 이미지 설정"]}),d.jsxs("button",{type:"button",onClick:()=>{var 
+:"text-center text-xs text-slate-600 mt-6",children:"© 2026 법무법인 정해. All rights reserved."})]})})}function AU(){return d.jsx

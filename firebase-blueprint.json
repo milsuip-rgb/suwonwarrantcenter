@@ -1,0 +1,95 @@
+{
+  "entities": {
+    "CaseItem": {
+      "title": "Case Item",
+      "description": "A successful case example",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "type": { "type": "string" },
+        "date": { "type": "string" },
+        "status": { "type": "string", "enum": ["공개", "비공개"] },
+        "createdAt": { "type": "number" },
+        "updatedAt": { "type": "number" }
+      },
+      "required": ["title", "type", "date", "status", "createdAt", "updatedAt"]
+    },
+    "LawyerItem": {
+      "title": "Lawyer Profile",
+      "description": "Information about a lawyer",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "role": { "type": "string" },
+        "type": { "type": "string" },
+        "image": { "type": "string" },
+        "createdAt": { "type": "number" },
+        "updatedAt": { "type": "number" }
+      },
+      "required": ["name", "role", "type", "createdAt", "updatedAt"]
+    },
+    "ReviewItem": {
+      "title": "Client Review",
+      "description": "Review written by a client",
+      "type": "object",
+      "properties": {
+        "writer": { "type": "string" },
+        "result": { "type": "string" },
+        "title": { "type": "string" },
+        "content": { "type": "string" },
+        "image": { "type": "string" },
+        "status": { "type": "string", "enum": ["승인됨", "대기중"] },
+        "createdAt": { "type": "number" },
+        "updatedAt": { "type": "number" }
+      },
+      "required": ["writer", "content", "status", "createdAt", "updatedAt"]
+    },
+    "PopupItem": {
+      "title": "Popup Item",
+      "description": "Popup notice for the website",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "date": { "type": "string" },
+        "status": { "type": "string", "enum": ["활성", "비활성"] },
+        "content": { "type": "string" },
+        "image": { "type": "string" },
+        "createdAt": { "type": "number" },
+        "updatedAt": { "type": "number" }
+      },
+      "required": ["title", "date", "status", "createdAt", "updatedAt"]
+    },
+    "AdminProfile": {
+      "title": "Admin Configuration",
+      "description": "Admin configuration to check roles",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string" },
+        "role": { "type": "string", "enum": ["admin"] }
+      },
+      "required": ["email", "role"]
+    }
+  },
+  "firestore": {
+    "cases/{caseId}": {
+      "schema": "CaseItem",
+      "description": "List of successful cases"
+    },
+    "lawyers/{lawyerId}": {
+      "schema": "LawyerItem",
+      "description": "List of lawyers"
+    },
+    "reviews/{reviewId}": {
+      "schema": "ReviewItem",
+      "description": "Client reviews"
+    },
+    "popups/{popupId}": {
+      "schema": "PopupItem",
+      "description": "Popup notices"
+    },
+    "admins/{email}": {
+      "schema": "AdminProfile",
+      "description": "List of admins. The document ID is the email address."
+    }
+  }
+}
