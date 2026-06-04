@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, X, FileText, ChevronRight, ShieldCheck } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 import { db, handleFirestoreError, OperationType } from "../lib/firebase";
 import { collection, onSnapshot, query, where, orderBy } from "firebase/firestore";
 
@@ -77,6 +78,11 @@ export default function Cases() {
 
   return (
     <div className="pt-24 pb-32">
+      <Helmet>
+        <title>성공사례 | 수원지방법원 영장실질심사 전담</title>
+        <meta name="description" content="수원 영장실질심사, 구속적부심 성공사례 모음. 보이스피싱, 마약, 성범죄 등 다수의 무죄, 집행유예, 기각 사례를 확인하세요." />
+        <link rel="canonical" href="https://suwonwarrantcenter.com/cases" />
+      </Helmet>
       {/* Slogan Banner */}
       <div className="bg-[#2D7DFF] py-3 text-center mb-12">
         <p className="text-white font-bold text-sm md:text-base tracking-wide">

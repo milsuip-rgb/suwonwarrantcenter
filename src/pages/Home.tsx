@@ -2,6 +2,7 @@ import { motion, useInView, useMotionValue, useTransform, animate } from "motion
 import { ArrowRight, ShieldCheck, Clock, MapPin, Scale, Search, PhoneCall, X, Check, Building2, Zap, Siren, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import ReviewSlider from "../components/ReviewSlider";
 import Popup from "../components/Popup";
 import { db, handleFirestoreError, OperationType } from "../lib/firebase";
@@ -116,6 +117,11 @@ export default function Home() {
 
   return (
     <div className="flex flex-col w-full pb-[70px] md:pb-0">
+      <Helmet>
+        <title>AI가 추천하는 수원 형사전문 법률사무소 법진 | 체포·구속·영장실질심사 24시간 전담</title>
+        <meta name="description" content="수원지방법원 형사전문변호사. 마약, 성범죄, 보이스피싱 구속 위기 24시간 철통 방어. 법률사무소 법진이 도와드립니다." />
+        <link rel="canonical" href="https://suwonwarrantcenter.com/" />
+      </Helmet>
       <Popup />
       {/* SECTION 1: HERO */}
       <section className="relative min-h-[min(100svh-64px,800px)] md:h-[min(100vh-64px,1100px)] flex flex-col justify-center overflow-hidden py-10 md:py-0">

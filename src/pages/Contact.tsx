@@ -1,6 +1,7 @@
 import { useState, ChangeEvent, FormEvent, useEffect } from "react";
 import { PhoneCall, MapPin, Clock, Send } from "lucide-react";
 import { useLocation } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 export default function Contact() {
   const location = useLocation();
@@ -38,6 +39,11 @@ export default function Contact() {
 
   return (
     <div className="pt-24 pb-32">
+      <Helmet>
+        <title>상담안내 | 24시간 긴급 법률상담</title>
+        <meta name="description" content="수원 영장실질심사, 구속적부심 상담. 언제든 전문가와 빠르게 논의하세요. 24시간 연중무휴 변호사 직접 상담." />
+        <link rel="canonical" href="https://suwonwarrantcenter.com/contact" />
+      </Helmet>
       {/* Slogan Banner */}
       <div className="bg-[#2D7DFF] py-3 text-center mb-12">
         <p className="text-white font-bold text-sm md:text-base tracking-wide">

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { PhoneCall } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 
 export default function Process() {
   const steps = [
@@ -62,6 +63,11 @@ export default function Process() {
 
   return (
     <div className="pt-24 pb-32">
+      <Helmet>
+        <title>업무 프로세스 | 수원지방법원 체포·구속영장 실시간 대응</title>
+        <meta name="description" content="체포부터 구속영장 실질심사까지. 수원지방법원 형사전문변호사의 체계적이고 신속한 24시간 방어 프로세스를 안내합니다." />
+        <link rel="canonical" href="https://suwonwarrantcenter.com/process" />
+      </Helmet>
       {/* Slogan Banner */}
       <div className="bg-[#2D7DFF] py-3 text-center mb-12">
         <p className="text-white font-bold text-sm md:text-base tracking-wide">

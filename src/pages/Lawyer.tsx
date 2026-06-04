@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { X, ChevronRight, Plus } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 import { db, handleFirestoreError, OperationType } from "../lib/firebase";
 import { collection, onSnapshot } from "firebase/firestore";
 
@@ -60,6 +61,11 @@ export default function Lawyer() {
 
   return (
     <div className="pt-24 pb-32">
+      <Helmet>
+        <title>변호사 소개 | 수원지방법원 형사전문변호사</title>
+        <meta name="description" content="수원 영장실질심사 전담 변호사. 대표 변호사가 강력 사건을 직접 전담하며 구속 위기에서 구출해 드립니다." />
+        <link rel="canonical" href="https://suwonwarrantcenter.com/lawyer" />
+      </Helmet>
       {/* Slogan Banner */}
       <div className="bg-[#2D7DFF] py-3 text-center mb-12">
         <p className="text-white font-bold text-sm md:text-base tracking-wide">
