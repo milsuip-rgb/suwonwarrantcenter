@@ -22,28 +22,29 @@ service cloud.firestore {
     
     // --- Validation Helpers ---
     function isValidCaseItem(data) {
-      return data.keys().hasAll(['station', 'charge', 'fact', 'defense', 'result', 'status', 'createdAt', 'updatedAt']) &&
-             data.keys().size() <= 10 &&
+      return data.keys().hasAll(['station', 'charge', 'fact', 'defense', 'result', 'status']) &&
              data.station is string && data.station.size() <= 200 &&
              data.charge is string && data.charge.size() <= 200 &&
              data.fact is string && data.fact.size() <= 5000 &&
              data.defense is string && data.defense.size() <= 5000 &&
              data.result is string && data.result.size() <= 200 &&
              data.status in ['공개', '비공개'] &&
-             (data.get('image', '') is string) && (data.get('image', '').size() <= 2097152) &&
-             (data.get('order', 0) is number) &&
-             data.createdAt is number && data.updatedAt is number;
+             (data.get('image', '') == null || (data.get('image', '') is string && data.get('image', '').size() <= 2097152)) &&
+             (data.get('order', 0) == null || data.get('order', 0) is number) &&
+             (data.get('createdAt', 0) is number) && 
+             (data.get('updatedAt', 0) is number);
     }
 
     function isValidLawyerItem(data) {
-      return data.keys().hasAll(['name', 'role', 'type', 'createdAt', 'updatedAt']) &&
-             data.keys().size() <= 7 &&
+      return data.keys().hasAll(['name', 'role', 'type']) &&
              data.name is string && data.name.size() <= 100 &&
              data.role is string && data.role.size() <= 100 &&
              data.type is string && data.type.size() <= 5000 &&
-             (data.get('image', '') is string) && (data.get('image', '').size() <= 2097152) &&
-             (data.get('order', 0) is number) &&
-             data.createdAt is number && data.updatedAt is number;
+             (data.get('image', '') == null || (data.get('image', '') is string && data.get('image', '').size() <= 2097152)) &&
+             (data.get('order', 0) == null || data.get('order', 0) is number) &&
+             (data.get('badges', '') == null || (data.get('badges', '') is string && data.get('badges', '').size() <= 500)) &&
+             (data.get('createdAt', 0) is number) &&
+             (data.get('updatedAt', 0) is number);
     }
 
     function isValidReviewItem(data) {
@@ -86,14 +87,14 @@ service cloud.firestore {
     match /cases/{caseId} {
       allow read: if true;
       allow create: if isAdmin() && isValidId(caseId) && isValidCaseItem(incoming());
-      allow update: if isAdmin() && isValidId(caseId) && isValidCaseItem(incoming()) && incoming().createdAt == existing().createdAt;
+      allow update: if isAdmin() && isValidId(caseId) && isValidCaseItem(incoming()) && (existing().get('createdAt', 0) == 0 || incoming().get('createdAt', 0) == existing().get('createdAt', 0));
       allow delete: if isAdmin() && isValidId(caseId);
     }
 
     match /lawyers/{lawyerId} {
       allow read: if true;
       allow create: if isAdmin() && isValidId(lawyerId) && isValidLawyerItem(incoming());
-      allow update: if isAdmin() && isValidId(lawyerId) && isValidLawyerItem(incoming()) && incoming().createdAt == existing().createdAt;
+      allow update: if isAdmin() && isValidId(lawyerId) && isValidLawyerItem(incoming()) && (existing().get('createdAt', 0) == 0 || incoming().get('createdAt', 0) == existing().get('createdAt', 0));
       allow delete: if isAdmin() && isValidId(lawyerId);
     }
 
@@ -101,14 +102,14 @@ service cloud.firestore {
       // Allow read for everyone so website can display approved reviews
       allow read: if true;
       allow create: if isAdmin() && isValidId(reviewId) && isValidReviewItem(incoming());
-      allow update: if isAdmin() && isValidId(reviewId) && isValidReviewItem(incoming()) && incoming().createdAt == existing().createdAt;
+      allow update: if isAdmin() && isValidId(reviewId) && isValidReviewItem(incoming()) && (existing().get('createdAt', 0) == 0 || incoming().get('createdAt', 0) == existing().get('createdAt', 0));
       allow delete: if isAdmin() && isValidId(reviewId);
     }
 
     match /popups/{popupId} {
       allow read: if true;
       allow create: if isAdmin() && isValidId(popupId) && isValidPopupItem(incoming());
-      allow update: if isAdmin() && isValidId(popupId) && isValidPopupItem(incoming()) && incoming().createdAt == existing().createdAt;
+      allow update: if isAdmin() && isValidId(popupId) && isValidPopupItem(incoming()) && (existing().get('createdAt', 0) == 0 || incoming().get('createdAt', 0) == existing().get('createdAt', 0));
       allow delete: if isAdmin() && isValidId(popupId);
     }
   }

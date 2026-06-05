@@ -82,8 +82,16 @@ export default function Contact() {
                  <p className="text-white font-bold mb-2">경기도 수원시 영통구 광교중앙로 248번길 7-3, 503호</p>
                  <p className="text-gray-400 text-sm leading-relaxed mb-4">하동, 우연법전프라자</p>
                  
-                 <div className="w-full h-48 bg-white/5 border border-white/10 flex items-center justify-center rounded-sm">
-                   <span className="text-gray-500 font-mono text-sm">[ 지도 API 영역 ]</span>
+                 <div className="w-full h-48 border border-white/10 rounded-sm overflow-hidden bg-white/5">
+                   <iframe 
+                     src="https://maps.google.com/maps?q=%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%88%98%EC%9B%90%EC%8B%9C%20%EC%98%81%ED%86%B5%EA%B5%AC%20%ED%95%98%EB%8F%99%20%EA%B4%91%EA%B5%90%EC%A4%91%EC%95%99%EB%A1%9C248%EB%B2%88%EA%B8%B8%207-3%20%EC%9A%B0%EC%97%B0%EB%B2%95%EC%A0%84%ED%94%84%EB%9D%BC%EC%9E%90%20%EB%B2%95%EB%A5%A0%EC%82%AC%EB%AC%B4%EC%86%8C%20%EB%B2%95%EC%A7%84&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                     width="100%" 
+                     height="100%" 
+                     style={{ border: 0 }} 
+                     allowFullScreen={false} 
+                     loading="lazy" 
+                     referrerPolicy="no-referrer-when-downgrade"
+                   ></iframe>
                  </div>
                </div>
              </div>
