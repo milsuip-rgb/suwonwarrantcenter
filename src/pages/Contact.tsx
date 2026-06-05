@@ -25,16 +25,62 @@ export default function Contact() {
     charge: "",
     situation: ""
   });
+  
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    alert("상담 신청이 완료되었습니다. 매우 긴급한 상황일 경우 아래 직통 전화로 연락 부탁드립니다.");
-    // Submit logic here
+    setIsSubmitting(true);
+    
+    // WARNING: Client-side Telegram API call exposes the bot token.
+    const botToken = "8915016018:AAHJZr_EPXe8dgr7WLAKBTKxHJZ11L8RXfo";
+    const chatId = "8745161114";
+    const text = `🚨 신규 상담 신청 접수\n\n이름: ${formData.name}\n연락처: ${formData.phone}\n\n[상세 내용]\n관할 경찰서: ${formData.policeStation || '미기재'}\n혐의: ${formData.charge || '미기재'}\n상황: ${formData.situation}`;
+    
+    try {
+      const fetchPromise = fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          chat_id: chatId,
+          text: text,
+        }),
+      });
+
+      // 10초 타임아웃
+      const timeoutPromise = new Promise((_, reject) => {
+        setTimeout(() => reject(new Error("Request timeout")), 10000);
+      });
+
+      const response = await Promise.race([fetchPromise, timeoutPromise]) as Response;
+
+      if (response.ok) {
+        alert("상담 신청이 완료되었습니다. 매우 긴급한 상황일 경우 아래 직통 전화로 연락 부탁드립니다.");
+        setFormData({
+          name: "",
+          phone: "",
+          policeStation: "",
+          charge: "",
+          situation: ""
+        });
+      } else {
+        const errorData = await response.json().catch(() => ({}));
+        console.error("Telegram API Failed:", errorData);
+        alert(`접수에 실패했습니다. 직통 전화로 연락 부탁드립니다. (오류: ${errorData.description || response.status})`);
+      }
+    } catch (error) {
+      console.error("Telegram API Error:", error);
+      alert("접수 중 오류가 발생했습니다. 브라우저 보안 또는 네트워크 문제를 확인해주세요.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -176,10 +222,11 @@ export default function Contact() {
 
                  <button
                    type="submit"
-                   className="w-full bg-[#2D7DFF] hover:bg-[#1A63DC] text-white font-bold py-4 rounded-sm flex items-center justify-center gap-2 transition-all shadow-[0_0_20px_rgba(45,125,255,0.2)] hover:shadow-[0_0_30px_rgba(45,125,255,0.4)]"
+                   disabled={isSubmitting}
+                   className={`w-full bg-[#2D7DFF] hover:bg-[#1A63DC] text-white font-bold py-4 rounded-sm flex items-center justify-center gap-2 transition-all shadow-[0_0_20px_rgba(45,125,255,0.2)] hover:shadow-[0_0_30px_rgba(45,125,255,0.4)] ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
                  >
-                   상담 신청서 전송
-                   <Send size={18} />
+                   {isSubmitting ? '전송 중...' : '상담 신청서 전송'}
+                   {!isSubmitting && <Send size={18} />}
                  </button>
                </form>
              </div>
