@@ -1,7 +1,7 @@
 import { motion, useInView, useMotionValue, useTransform, animate } from "motion/react";
-import { ArrowRight, ShieldCheck, Clock, MapPin, Scale, Search, PhoneCall, X, Check, Building2, Zap, Siren, Sparkles } from "lucide-react";
+import { ArrowRight, ShieldCheck, Clock, MapPin, Scale, Search, PhoneCall, X, Check, Building2, Zap, Siren, Sparkles, UserCheck } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import ReviewSlider from "../components/ReviewSlider";
 import Popup from "../components/Popup";
@@ -73,7 +73,7 @@ function Counter() {
   }, [isInView, count]);
 
   return (
-    <div ref={ref} className="text-[30vw] md:text-[22vw] lg:text-[280px] font-black leading-[0.85] text-transparent bg-clip-text bg-gradient-to-b from-[#ffffff] via-[#d1d5db] to-[#6b7280] tracking-tighter whitespace-nowrap flex items-center justify-center select-none">
+    <div ref={ref} className="text-[30vw] md:text-[22vw] lg:text-[180px] xl:text-[220px] font-black leading-[0.85] text-transparent bg-clip-text bg-gradient-to-b from-[#ffffff] via-[#d1d5db] to-[#6b7280] tracking-tighter whitespace-nowrap flex items-center justify-center select-none">
       <motion.span>{rounded}</motion.span>
       <span>+</span>
     </div>
@@ -118,8 +118,8 @@ export default function Home() {
   return (
     <div className="flex flex-col w-full pb-[70px] md:pb-0">
       <Helmet>
-        <title>AI가 추천하는 수원 형사전문 법률사무소 법진 | 체포·구속·영장실질심사 24시간 전담</title>
-        <meta name="description" content="수원지방법원 형사전문변호사. 마약, 성범죄, 보이스피싱 구속 위기 24시간 철통 방어. 법률사무소 법진이 도와드립니다." />
+        <title>수원 형사전문 법률사무소 법진 | 체포·구속·영장실질심사 24시간 전담</title>
+        <meta name="description" content="수원지방법원 앞 형사전문변호사. 마약, 성범죄, 보이스피싱 구속 위기 24시간 철통 방어. 법률사무소 법진이 도와드립니다." />
         <link rel="canonical" href="https://suwonwarrantcenter.com/" />
       </Helmet>
       <Popup />
@@ -139,16 +139,16 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 lg:items-center">
             
             {/* Left Column: Text & CTA */}
-            <div className="lg:col-span-7 xl:col-span-8 flex flex-col items-start gap-3 md:gap-6 mt-4 md:mt-8">
+            <div className="lg:col-span-12 xl:col-span-12 flex flex-col items-start gap-3 md:gap-6 mt-4 md:mt-8">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
               >
                 <h1 className="font-bold leading-[1.0] tracking-tighter text-white">
-                  <span className="block text-[15vw] sm:text-[10vw] md:text-7xl mb-1 sm:mb-2 md:mb-4">수원지방법원</span>
-                  <span className="block text-[15vw] sm:text-[10vw] md:text-7xl text-[#2D7DFF] drop-shadow-[0_0_20px_rgba(45,125,255,0.4)] mb-1 sm:mb-2 md:mb-4">영장실질심사</span>
-                  <span className="block text-[15vw] sm:text-[10vw] md:text-7xl">전문센터</span>
+                  <span className="block text-[15vw] sm:text-[10vw] md:text-6xl lg:text-7xl xl:text-[80px] mb-1 sm:mb-2 md:mb-4">수원지방법원</span>
+                  <span className="block text-[15vw] sm:text-[10vw] md:text-6xl lg:text-7xl xl:text-[80px] text-[#2D7DFF] drop-shadow-[0_0_20px_rgba(45,125,255,0.4)] mb-1 sm:mb-2 md:mb-4">영장실질심사</span>
+                  <span className="block text-[15vw] sm:text-[10vw] md:text-6xl lg:text-7xl xl:text-[80px]">전문센터</span>
                 </h1>
 
                 <ul className="text-[15px] md:text-xl text-gray-300 max-w-2xl mt-6 md:mt-10 space-y-2 md:space-y-4 font-medium">
@@ -183,56 +183,6 @@ export default function Home() {
                 </div>
               </motion.div>
             </div>
-
-            {/* Right Column: Status Card for PC */}
-            <div className="hidden lg:block lg:col-span-5 xl:col-span-4 mt-8 md:mt-0 h-full">
-              <motion.div
-                 initial={{ opacity: 0, scale: 0.95 }}
-                 animate={{ opacity: 1, scale: 1 }}
-                 transition={{ duration: 0.8, delay: 0.3 }}
-                 className="bg-[#070B13]/60 backdrop-blur-md border border-white/10 p-7 rounded-2xl relative overflow-hidden group hover:border-[#2D7DFF]/40 transition-colors w-full shadow-[0_0_40px_rgba(45,125,255,0.05)] flex flex-col h-full"
-              >
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-[#2D7DFF]/10 rounded-full blur-[40px] group-hover:bg-[#2D7DFF]/20 transition-colors"></div>
-                  
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-8 h-8 rounded-full bg-[#2D7DFF]/20 flex items-center justify-center">
-                      <MapPin size={16} className="text-[#59C7FF]" />
-                    </div>
-                    <span className="text-white font-bold tracking-tight text-lg">오시는 길</span>
-                  </div>
-                  
-                  <div className="w-full aspect-video rounded-xl bg-white/5 border border-white/10 mb-6 overflow-hidden relative">
-                    <iframe 
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3171.745129676991!2d127.06734327660232!3d37.291702443317075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b5c1c045b38ed%3A0x6bba8dd776718d7!2z6rK96riw64-EIOyImOybkOyLnCDsmIHthrXqt6wg6rSR6rWQ7KSR7JWZ66GcMjQ467KI6ri4IDctMyA1MDPtmLg!5e0!3m2!1sko!2skr!4v1714442220000!5m2!1sko!2skr"
-                      width="100%"
-                      height="100%"
-                      style={{ border: 0, filter: "invert(90%) hue-rotate(180deg) contrast(80%)" }}
-                      allowFullScreen
-                      loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade"
-                      title="법률사무소 법진 위치"
-                    ></iframe>
-                  </div>
-
-                  <div className="flex items-start gap-3 mb-6 flex-1">
-                    <Building2 className="text-gray-400 shrink-0 mt-0.5" size={18} />
-                    <div className="text-[14px] text-gray-300 leading-relaxed font-medium">
-                      경기도 수원시 영통구 광교중앙로 248번길 7-3,<br />
-                      503호 (하동, 우연법전프라자)
-                    </div>
-                  </div>
-
-                  <div className="mt-auto flex items-center justify-between bg-[#2D7DFF]/10 border border-[#2D7DFF]/20 p-5 rounded-xl">
-                    <div>
-                      <div className="text-[11px] text-[#59C7FF] font-semibold mb-1 uppercase tracking-wider">법률사무소 법진 직통번호</div>
-                      <div className="text-2xl font-bold text-white tracking-tight">031-214-5566</div>
-                    </div>
-                    <a href="tel:031-214-5566" className="w-12 h-12 rounded-full bg-[#2D7DFF]/20 hover:bg-[#2D7DFF]/30 transition-colors flex items-center justify-center shrink-0">
-                      <PhoneCall className="text-[#2D7DFF]" size={22} />
-                    </a>
-                  </div>
-              </motion.div>
-            </div>
             
           </div>
         </div>
@@ -265,7 +215,13 @@ export default function Home() {
             <Counter />
           </div>
           
-          <div className="px-4">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
+            className="px-4"
+          >
             <h3 className="text-[1.35rem] sm:text-3xl md:text-[34px] text-gray-300 font-light tracking-tight break-keep leading-[1.8] md:leading-[1.8]">
               영장실질심사는<br />
               <strong className="text-white font-semibold">지역 법원의 실무와 재판부 특성을</strong> <br className="hidden md:block" />
@@ -274,7 +230,7 @@ export default function Home() {
               저희는 수원지방법원 영장실질심사만<br />
               <strong className="text-[#59C7FF] font-bold text-[1.7rem] sm:text-4xl md:text-5xl md:ml-2 align-middle drop-shadow-[0_0_15px_rgba(45,125,255,0.4)]">1,000건 이상</strong> 수행했습니다.
             </h3>
-          </div>
+          </motion.div>
 
         </div>
       </section>
@@ -294,7 +250,14 @@ export default function Home() {
               {cases.map((caseItem, idx) => {
                 const theme = THEMES[idx % THEMES.length];
                 return (
-                  <div key={idx} className={`group bg-[#070B13] p-6 md:p-8 rounded-2xl flex flex-col border border-white/5 ${theme.border} transition-colors relative overflow-hidden h-auto md:min-h-[250px]`}>
+                  <motion.div 
+                    key={idx} 
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 0.6, delay: (idx % 2) * 0.1 }}
+                    className={`group bg-[#070B13] p-6 md:p-8 rounded-2xl flex flex-col border border-white/5 ${theme.border} transition-colors relative overflow-hidden h-auto md:min-h-[250px]`}
+                  >
                     {caseItem.image ? (
                       <div className="absolute right-0 top-0 bottom-0 w-2/3 md:w-[60%] transition-transform duration-700 group-hover:scale-105 pointer-events-none">
                         <div 
@@ -331,7 +294,7 @@ export default function Home() {
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 );
               })}
             </div>
@@ -357,7 +320,13 @@ export default function Home() {
           <div className="flex flex-col items-center max-w-3xl mx-auto space-y-8 md:space-y-12">
             
             {/* 첫 번째 블록 */}
-            <div className="w-full bg-[#0B0F17] p-6 md:p-8 border border-red-500/30 shadow-[0_0_20px_rgba(239,68,68,0.15)] rounded-2xl relative overflow-hidden group">
+            <motion.div 
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8 }}
+              className="w-full bg-[#0B0F17] p-6 md:p-8 border border-red-500/30 shadow-[0_0_20px_rgba(239,68,68,0.15)] rounded-2xl relative overflow-hidden group"
+            >
               {/* 좌측 상단 붉은 조명 */}
               <div className="absolute top-0 left-0 w-48 h-48 bg-red-500/10 blur-[50px] rounded-br-[100px] pointer-events-none" />
               
@@ -375,12 +344,19 @@ export default function Home() {
                   "재판에서 밝히겠습니다",
                   "피해자가 먼저 잘못했습니다"
                 ].map((text, idx) => (
-                  <li key={idx} className="text-gray-400 text-[16px] md:text-[18px] font-light px-4 md:px-5 py-1.5 border-l-2 border-red-500/40 tracking-tight">
+                  <motion.li 
+                    key={idx} 
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.2 + (idx * 0.1) }}
+                    className="text-gray-400 text-[16px] md:text-[18px] font-light px-4 md:px-5 py-1.5 border-l-2 border-red-500/40 tracking-tight"
+                  >
                     {text}
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
-            </div>
+            </motion.div>
 
             {/* 중간 텍스트 */}
             <div className="text-center relative py-4 md:py-8">
@@ -392,7 +368,13 @@ export default function Home() {
             </div>
 
             {/* 두 번째 블록 */}
-            <div className="w-full bg-[#0B0F17] p-6 md:p-8 border border-[#2D7DFF]/40 shadow-[0_0_20px_rgba(45,125,255,0.2)] rounded-2xl relative overflow-hidden group">
+            <motion.div 
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8 }}
+              className="w-full bg-[#0B0F17] p-6 md:p-8 border border-[#2D7DFF]/40 shadow-[0_0_20px_rgba(45,125,255,0.2)] rounded-2xl relative overflow-hidden group"
+            >
               {/* 우측 하단 수원 블루 조명 */}
               <div className="absolute bottom-0 right-0 w-64 h-64 bg-[#2D7DFF]/15 blur-[60px] rounded-tl-[100px] pointer-events-none" />
               
@@ -410,13 +392,20 @@ export default function Home() {
                   "피해자에게 영향을 줄 가능성은 없는가",
                   "재범 위험성은 없는가"
                 ].map((text, idx) => (
-                  <li key={idx} className="flex items-center gap-4 text-gray-200 text-base md:text-xl py-1 tracking-tight">
+                  <motion.li 
+                    key={idx} 
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.2 + (idx * 0.1) }}
+                    className="flex items-center gap-4 text-gray-200 text-base md:text-xl py-1 tracking-tight"
+                  >
                     <div className="w-2 h-2 rounded-full bg-[#59C7FF] shadow-[0_0_10px_rgba(89,199,255,0.8)] shrink-0" />
                     {text}
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
-            </div>
+            </motion.div>
 
           </div>
         </div>
